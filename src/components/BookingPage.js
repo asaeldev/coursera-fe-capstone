@@ -1,5 +1,6 @@
 import React, { useState, useReducer, useEffect } from "react";
-import BookingForm from "./BookingForm";
+import BookingForm from "./BookingForm/BookingForm";
+import Footer from "./Footer/Footer";
 
 const AVAILABLE_TIMES = [
   "16:00",
@@ -70,20 +71,23 @@ function BookingPage() {
   };
 
   return (
-    <div
-      style={{
-        padding: "2rem 2rem",
-      }}
-    >
-      <BookingForm
-        handleResDate={handleResDate}
-        handleResTime={handleResTime}
-        handleGuests={handleGuests}
-        handleOccasion={handleOccasion}
-        availableTimes={state}
-        submitForm={submitForm}
-      />
-    </div>
+    <>
+      <div
+        style={{
+          padding: "2rem 2rem",
+        }}
+      >
+        <BookingForm
+          handleResDate={handleResDate}
+          handleResTime={handleResTime}
+          handleGuests={handleGuests}
+          handleOccasion={handleOccasion}
+          availableTimes={state}
+          submitForm={submitForm}
+        />
+      </div>
+      <Footer />
+    </>
   );
 }
 

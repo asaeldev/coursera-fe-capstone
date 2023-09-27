@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import Input from "../Input/Input";
+import SelectInput from "../SelectInput/SelectInput";
+import Button from "../Button/Button";
+import styles from "./BookingForm.module.css";
 
 function BookingForm({
   handleResDate,
@@ -11,6 +15,11 @@ function BookingForm({
   return (
     <div>
       <h1>Book Now</h1>
+      <h3>
+        Kindly review the following instructions to complete your restaurant
+        booking form accurately. Your attention to detail will help us provide
+        you with the best dining experience.
+      </h3>
       <form
         onSubmit={submitForm}
         style={{
@@ -20,21 +29,21 @@ function BookingForm({
         }}
       >
         <label htmlFor="res-date">Choose date</label>
-        <input type="date" id="res-date" onChange={handleResDate} />
+        <Input id="res-date" type="date" onChange={handleResDate} />
 
         <label htmlFor="res-time">Choose time</label>
-        <select id="res-time " onChange={handleResTime}>
+        <SelectInput id="res-time " onChange={handleResTime}>
           {availableTimes !== undefined &&
             availableTimes.map((time) => <option key={time}>{time}</option>)}
-        </select>
+        </SelectInput>
 
         <label htmlFor="guests">Number of guests</label>
-        <input
+        <Input
+          id="guests"
           type="number"
           placeholder="1"
           min="1"
           max="10"
-          id="guests"
           onChange={handleGuests}
         />
 
@@ -44,7 +53,7 @@ function BookingForm({
           <option key="Anniversary">Anniversary</option>
         </select>
 
-        <input type="submit" value="Make Your reservation" />
+        <Button type="submit">Make Your reservation</Button>
       </form>
     </div>
   );
