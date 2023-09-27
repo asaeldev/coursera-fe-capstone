@@ -3,7 +3,8 @@ import Logo from "./assets/logo.png";
 import Home from "./pages/Home";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import styles from "./components/Nav/Nav.module.css";
-import BookingPage from "./components/BookingPage";
+import BookingPage from "./pages/BookingPage";
+import ConfirmedBooking from "./pages/ConfirmedBooking";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/booking" element={<BookingPage />} />
+        <Route path="/confirmed-booking" element={<ConfirmedBooking />} />
       </Routes>
     </Router>
   );

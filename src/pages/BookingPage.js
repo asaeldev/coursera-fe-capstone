@@ -1,6 +1,8 @@
 import React, { useState, useReducer, useEffect } from "react";
-import BookingForm from "./BookingForm/BookingForm";
-import Footer from "./Footer/Footer";
+import { useNavigate } from "react-router-dom";
+import BookingForm from "../components/BookingForm/BookingForm";
+import Footer from "../components/Footer/Footer";
+import { fetchAPI, submitAPI } from "../api/FakeApi";
 
 const AVAILABLE_TIMES = [
   "16:00",
@@ -13,8 +15,8 @@ const AVAILABLE_TIMES = [
 ];
 
 const reducer = (state, action) => {
-  if (action.type === "DATE_CHANGE") {
-    console.log(action);
+  if (action.type === "UPDATE_TIMES") {
+    state = action.payload;
   }
 
   return state;
@@ -28,28 +30,32 @@ function BookingPage() {
   const [occasion, setOccasion] = useState("");
 
   const [state, dispatch] = useReducer(reducer, AVAILABLE_TIMES);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    initializeTimes();
+    fetchAPI("9/27/2023").then((response) => {
+      console.log(response);
+      initializeTimes(response);
+    });
   }, []);
 
-  const updateTimes = (date) => {
-    //fetchAPI(date).then((response) => console.log(response));
-    return AVAILABLE_TIMES;
-  };
-
-  const initializeTimes = () => {
+  const updateTimes = async (date) => {
+    const data = await fetchAPI(date);
     dispatch({
-      type: "DATE_CHANGE",
-      payload: AVAILABLE_TIMES,
+      type: "UPDATE_TIMES",
+      payload: data,
     });
   };
 
-  const handleResDate = (event) => {
+  const initializeTimes = (availableTimes) => {
     dispatch({
-      type: "DATE_CHANGE",
-      payload: updateTimes(event.target.value),
+      type: "UPDATE_TIMES",
+      payload: availableTimes,
     });
+  };
+
+  const handleResDate = async (event) => {
+    await updateTimes(event.target.value);
     setResDate(event.target.value);
   };
 
@@ -65,9 +71,20 @@ function BookingPage() {
     setOccasion(event.target.value);
   };
 
-  const submitForm = (event) => {
+  const submitForm = async (event) => {
     event.preventDefault();
-    console.log("Hello");
+    const data = new FormData();
+    data.append("date", resDate);
+    data.append("time", resTime);
+    data.append("numberOfGuests", guests);
+    data.append("occasion", occasion);
+
+    console.log(data);
+
+    const response = await submitAPI(data);
+    if (response.success) {
+      navigate("/confirmed-booking");
+    }
   };
 
   return (
@@ -92,3 +109,4 @@ function BookingPage() {
 }
 
 export default BookingPage;
+export { AVAILABLE_TIMES };

@@ -32,7 +32,7 @@ function BookingForm({
         <Input id="res-date" type="date" onChange={handleResDate} />
 
         <label htmlFor="res-time">Choose time</label>
-        <SelectInput id="res-time " onChange={handleResTime}>
+        <SelectInput id="res-time" onChange={handleResTime}>
           {availableTimes !== undefined &&
             availableTimes.map((time) => <option key={time}>{time}</option>)}
         </SelectInput>

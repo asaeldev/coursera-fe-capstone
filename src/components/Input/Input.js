@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Input.module.css";
 
-function Input({ id, type, placeholder, min, max, handleOnChange }) {
+function Input({ id, type, placeholder, min, max, onChange }) {
   return (
     <>
       <input
@@ -10,7 +10,7 @@ function Input({ id, type, placeholder, min, max, handleOnChange }) {
         min={min}
         max={max}
         type={type}
-        onChange={handleOnChange}
+        onChange={onChange}
       />
     </>
   );
