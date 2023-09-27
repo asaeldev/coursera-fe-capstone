@@ -1,9 +1,11 @@
 import React from "react";
+import Logo from "../../assets/logo.png";
+import styles from "./Nav.module.css";
 
 function Nav() {
   return (
-    <nav>
-      <img src="" alt="logo"></img>
+    <nav className={styles.navigation}>
+      <img src={Logo} alt="logo" />
       <ul>
         <li>
           <a href="#">Home</a>

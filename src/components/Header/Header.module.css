@@ -1,0 +1,20 @@
+header {
+  background-color: #495e57;
+  padding: 4rem 2rem 4rem 2rem;
+}
+
+header h1 {
+  color: #f4ce14;
+  font-weight: bold;
+  margin-bottom: 0.1rem;
+}
+
+header h2 {
+  color: #edefee;
+  margin-top: 0.1rem;
+}
+
+header p {
+  color: #edefee;
+  max-width: 50%;
+}

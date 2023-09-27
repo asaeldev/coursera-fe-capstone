@@ -1,0 +1,38 @@
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.navigation ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.navigation ul > li {
+  padding: 0.5rem 0;
+}
+
+.navigation ul > li > a {
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+  padding: 0 1rem;
+}
+
+.navigation ul > li:hover {
+  background-color: #f4ce14;
+}
+
+.navigation ul > li > a:hover {
+  font-weight: bolder;
+}
+
+nav > img {
+  width: 196px;
+  height: 53px;
+}

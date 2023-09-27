@@ -1,11 +1,28 @@
 import React from "react";
+import Logo from "../../assets/logo.png";
+import styles from "./Footer.module.css";
 
 function Footer() {
   return (
-    <footer>
-      <img src=""></img>
+    <footer
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-around",
+      }}
+    >
+      <img
+        src={Logo}
+        alt="Little Lemon Logo"
+        style={{
+          width: "195px",
+          height: "53px",
+        }}
+      />
 
       <div>
+        <h3>Doormat Navigation</h3>
         <ul>
           <li>
             <a href="#">Home</a>
@@ -30,16 +47,16 @@ function Footer() {
 
       <div>
         <h3>Contact</h3>
-        <p>Address</p>
-        <p>Phone Number</p>
-        <p>Email</p>
+        <p>4180 Pringle Drive, Chicago, Illinois, 60606</p>
+        <p>312-409-7314</p>
+        <p>contact@littlelemon.com</p>
       </div>
 
       <div>
         <h3>Social Media</h3>
-        <p>Address</p>
-        <p>Phone Number</p>
-        <p>Email</p>
+        <p>Facebook</p>
+        <p>Instagram</p>
+        <p>Twitter</p>
       </div>
     </footer>
   );
