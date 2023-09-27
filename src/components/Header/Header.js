@@ -2,6 +2,7 @@ import React from "react";
 import Button from "../Button/Button";
 import styles from "./Header.module.css";
 import RestaurantFood from "../../assets/restauranfood.png";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -22,7 +23,9 @@ function Header() {
             traditional recipes served with a modern twist.
           </p>
 
-          <Button>Reserve a table</Button>
+          <Link to="/booking">
+            <Button ariaLabel="On Click">Reserve a table</Button>
+          </Link>
         </div>
 
         <div>

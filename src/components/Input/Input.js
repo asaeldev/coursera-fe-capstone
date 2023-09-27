@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Input.module.css";
 
-function Input({ id, type, placeholder, min, max, onChange }) {
+function Input({ id, type, placeholder, min, max, onChange, required }) {
   return (
     <>
       <input
@@ -11,6 +11,7 @@ function Input({ id, type, placeholder, min, max, onChange }) {
         max={max}
         type={type}
         onChange={onChange}
+        required={required}
       />
     </>
   );

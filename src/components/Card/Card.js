@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Card.module.css";
+import { FaMotorcycle } from "react-icons/fa6";
 
 function Card({ title, subtitle, coverImage }) {
   return (
@@ -28,8 +29,17 @@ function Card({ title, subtitle, coverImage }) {
           Chicago style feta cheese, garnished with crunchy garlic and rosemary
           croutons.
         </p>
-        <div className={styles.footer}>
+        <div
+          className={styles.footer}
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+          }}
+        >
           <a href="#">Order a delivery</a>
+          &nbsp;
+          <FaMotorcycle />
         </div>
       </div>
     </div>
